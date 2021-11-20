@@ -18,14 +18,6 @@ option(BUILD_PYTHON "Build python if ON" ON)
 #-------------------------------------------------------------------------------
 SET(BUILD_NUMBER 0)
 SET(VERSION_STRING "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}")
-find_package(Git)
-if(GIT_FOUND)
-    execute_process(
-            COMMAND ${GIT_EXECUTABLE} describe --match INITIAL_BUILD
-            OUTPUT_VARIABLE DESCRIBE_BUILD
-            OUTPUT_STRIP_TRAILING_WHITESPACE)
-    string(REGEX MATCH "[0-9]+" BUILD_NUMBER ${DESCRIBE_BUILD})
-endif()
 ADD_DEFINITIONS(-DBUILD_NUMBER=${BUILD_NUMBER})
 ADD_DEFINITIONS(-DVERSION_STRING=${VERSION_STRING})
 #-------------------------------------------------------------------------------
