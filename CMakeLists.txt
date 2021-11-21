@@ -261,7 +261,7 @@ if(BUILD_PYTHON)
     add_dependencies(write_version_string_to_python python_source_files)
     add_custom_command(TARGET write_version_string_to_python POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DVERSION_STRING=${VERSION_STRING} -DBUILD_NUMBER=${BUILD_NUMBER} -P
-        ${CMAKE_CURRENT_BINARY_DIR}/../cmake/write_python_version_string.cmake)
+        ${CMAKE_CURRENT_BINARY_DIR}/cmake/write_python_version_string.cmake)
 else()
     message("-- Not building python libraries. To build python libraries use -DBUILD_PYTHON=ON")
 endif()
